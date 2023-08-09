@@ -5,8 +5,6 @@ class Solution {
             sum += (long) price * i;
         }
         long answer = sum - money;
-        if (answer < 0) {
-            return 0;
-        } else return answer;
+        return answer < 0 ? 0 : answer;
     }
 }
