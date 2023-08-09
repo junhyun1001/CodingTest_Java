@@ -15,7 +15,7 @@ def main():
     directories = [];
     solveds = [];
 
-    for root, dirs, files in.walk("."):
+    for root, dirs, files in os.walk("."):
         dirs.sort()
         if root == '.':
             for dir in ('.git', '.github'):
@@ -40,13 +40,13 @@ def main():
                 content += "## 📚 {}\n".format(directory)
             else:
                 content += "### 🚀 {}\n".format(directory)
-                content += "| 문제번호 | 링크 | 체크박스 |\n"
-                content += "| ----- | ----- | :-----: |\n"
+                content += "| 문제번호 | 링크 |\n"
+                content += "| ----- | ----- |\n"
             directories.append(directory)
 
         for file in files:
             if category not in solveds:
-                content += "|{}|[링크]({})|<input type=\"checkbox\">|\n".format(category, parse.quote(os.path.join(root, file)))
+                content += "|{}|[링크]({})|\n".format(category, parse.quote(os.path.join(root, file)))
                 solveds.append(category)
                 print("category : " + category)
 
