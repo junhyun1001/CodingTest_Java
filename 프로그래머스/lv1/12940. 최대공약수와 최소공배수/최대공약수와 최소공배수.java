@@ -6,14 +6,12 @@ class Solution {
         int[] answer = new int[2];
 
         answer[0] = getGCD(n, m);
-        answer[1] = getLCM(n, m, getGCD(n, m));
+        answer[1] = getLCM(n, m, answer[0]);
         return answer;
     }
 
     public int getGCD(int n, int m) {
-        if (m == 0) {
-            return n;
-        }
+        if (m == 0) return n;
         return getGCD(m, n % m);
     }
 
