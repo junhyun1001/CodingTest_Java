@@ -8,7 +8,6 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         int ptr = 0;
         for (char c : s.toCharArray()) {
-            System.out.println(c + " : " + ptr);
             if (c != ' ') {
                 if (ptr % 2 == 0) sb.append(String.valueOf(c).toUpperCase());
                 else sb.append(String.valueOf(c).toLowerCase());
