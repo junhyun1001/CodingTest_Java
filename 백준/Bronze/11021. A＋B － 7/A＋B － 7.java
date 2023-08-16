@@ -5,13 +5,19 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < n; i++) {
             String s = br.readLine();
             String[] split = s.split(" ");
-            bw.write("Case #" + (i + 1) + ": " + (Integer.parseInt(split[0]) + Integer.parseInt(split[1])) + "");
+            sb.append("Case #");
+            sb.append(i + 1);
+            sb.append(": ");
+            sb.append(Integer.parseInt(split[0]) + Integer.parseInt(split[1]));
+            bw.write(String.valueOf(sb));
             bw.newLine();
+            sb.delete(0, sb.length());
         }
         bw.flush();
     }
