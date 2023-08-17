@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -12,6 +11,18 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        System.out.println(Arrays.stream(arr).min().getAsInt() + " " + Arrays.stream(arr).max().getAsInt());
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for (int j : arr) {
+            if (min > j) {
+                min = j;
+            }
+        }
+        for (int j : arr) {
+            if (max < j) {
+                max = j;
+            }
+        }
+        System.out.println(min + " " + max);
     }
 }
