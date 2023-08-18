@@ -10,8 +10,11 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             String[] s = br.readLine().split(" ");
+            int r = Integer.parseInt(s[0]);
             for (int j = 0; j < s[1].length(); j++) {
-                sb.append(String.valueOf(s[1].charAt(j)).repeat(Math.max(0, Integer.parseInt(s[0]))));
+                for (int k = 0; k < r; k++) {
+                    sb.append(s[1].charAt(j));
+                }
             }
             sb.append("\n");
         }
