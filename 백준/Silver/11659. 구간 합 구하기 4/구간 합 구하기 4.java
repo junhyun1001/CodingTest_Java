@@ -13,23 +13,26 @@ public class Main {
         String[] strArr = br.readLine().split(" ");
 
         int[] arr = new int[n];
+        int[] prefixSum = new int[n];
+
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(strArr[i]);
-        }
-
-        // 구간 합을 구하기 위한 합배열
-        int[] arrSum = new int[n];
-        arrSum[0] = arr[0];
-        for (int i = 1; i < n; i++) {
-            arrSum[i] = arrSum[i - 1] + arr[i];
+            if (i == 0) {
+                prefixSum[i] = arr[i];
+            } else {
+                prefixSum[i] = prefixSum[i - 1] + arr[i];
+            }
         }
 
         for (int i = 0; i < m; i++) {
             String[] s1 = br.readLine().split(" ");
             int a = Integer.parseInt(s1[0]) - 1;
             int b = Integer.parseInt(s1[1]) - 1;
-            if(a == 0) System.out.println(arrSum[b]);
-            else System.out.println(arrSum[b] - arrSum[a - 1]);
+            if (a == 0) {
+                System.out.println(prefixSum[b]);
+            } else {
+                System.out.println(prefixSum[b] - prefixSum[a - 1]);
+            }
         }
     }
 }
