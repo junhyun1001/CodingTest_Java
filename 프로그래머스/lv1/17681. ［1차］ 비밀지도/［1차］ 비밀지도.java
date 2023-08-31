@@ -3,30 +3,20 @@ import java.util.Arrays;
 class Solution {
     public String[] solution(int n, int[] arr1, int[] arr2) {
         
-        String[] b1 = new String[n];
-        String[] b2 = new String[n];
+        String[] answer = new String[n];
         
         for(int i = 0; i < n; i++) {
-            b1[i] = String.format("%" + n + "s", Integer.toBinaryString(arr1[i])).replace(' ', '0');
-            b2[i] = String.format("%" + n + "s", Integer.toBinaryString(arr2[i])).replace(' ', '0');
+            answer[i] = Integer.toBinaryString(arr1[i] | arr2[i]); // arr1[i]과 arr2[i] 둘 중 하나가 1이면 1 반환, 두 수가 0이면 0 반환
         }
         
-        
-        StringBuilder sb = new StringBuilder();
-        String[] answer = new String[n];
         for(int i = 0; i < n; i++) {
-            String s1 = b1[i];
-            String s2 = b2[i];
-            for(int j = 0; j < n; j++) {
-                if(s1.charAt(j) == '0' && s2.charAt(j) == '0') {
-                    sb.append(" ");
-                } else sb.append("#");
-            }
-            answer[i] = String.valueOf(sb);
-            sb.setLength(0);
+            answer[i] = String.format("%" + n + "s", answer[i]);
+            answer[i] = answer[i].replaceAll("1", "#");
+            answer[i] = answer[i].replaceAll("0", " ");
         }
         
         return answer;
+        
     }
     
 }
