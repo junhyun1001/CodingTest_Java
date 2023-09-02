@@ -12,29 +12,29 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        int[][] a = new int[n][m];
-        int[][] b = new int[n][m];
+        int[][] arr = new int[n * 2][m];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n * 2; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++) {
-                a[i][j] = Integer.parseInt(st.nextToken());
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        for (int i = 0; i < n; i++) {
-            st = new StringTokenizer(br.readLine());
+        /*
+            arr[0][0] + arr[3][0], arr[0][1] + arr[3][1], arr[0][2] + arr[3][2]
+         */
+
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                b[i][j] = Integer.parseInt(st.nextToken());
+                sb.append(arr[i][j] + arr[i + n][j]);
+                sb.append(" ");
             }
+            sb.append("\n");
         }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                System.out.print(a[i][j] + b[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.println(sb);
 
     }
 }
