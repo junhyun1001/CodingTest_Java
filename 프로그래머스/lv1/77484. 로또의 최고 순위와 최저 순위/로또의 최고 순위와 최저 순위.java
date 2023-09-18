@@ -23,20 +23,13 @@ class Solution {
     }
     
     public static int getScore(int count) {
-        int score = 0;
         switch(count) {
-            case 6: score = 1;
-                break;
-            case 5 : score = 2;
-                break;
-            case 4 : score = 3;
-                break;
-            case 3 : score = 4;
-                break;
-            case 2 : score = 5;
-                break;
-            default : score = 6;
+            case 6 : return 1;
+            case 5 : return 2;
+            case 4 : return 3;
+            case 3 : return 4;
+            case 2 : return 5;
+            default : return 6;
         }
-        return score;
     }
 }
