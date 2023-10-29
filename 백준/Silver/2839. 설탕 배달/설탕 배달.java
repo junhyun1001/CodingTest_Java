@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -10,21 +8,22 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        ArrayList<Integer> list = new ArrayList<>();
 
+        int min = Integer.MAX_VALUE;
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= n; j++) {
                 int fx = 3 * i + 5 * j;
                 if (fx == n) {
-                    list.add(i + j);
+                    if (min > i + j) {
+                        min = i + j;
+                    }
                 }
             }
         }
 
-        if (list.size() == 0) {
-            list.add(-1);
-        }
-        System.out.println(list.get(0));
+        if (min == Integer.MAX_VALUE) min = -1;
+
+        System.out.println(min);
 
 
     }
