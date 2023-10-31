@@ -6,8 +6,6 @@ from urllib import parse
 HEADER="""# 
 # 문제 풀이 목록
 
-"""
-
 def main():
     content = ""
     content += HEADER
