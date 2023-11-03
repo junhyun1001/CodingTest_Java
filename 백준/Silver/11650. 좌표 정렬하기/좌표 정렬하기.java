@@ -8,16 +8,18 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[][] numbers = new int[n][2];
+        int[][] arr = new int[n][2];
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            numbers[i][0] = Integer.parseInt(st.nextToken());
-            numbers[i][1] = Integer.parseInt(st.nextToken());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+            arr[i][0] = x;
+            arr[i][1] = y;
         }
 
         br.close();
 
-        Arrays.sort(numbers, new Comparator<int[]>() {
+        Arrays.sort(arr, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
                 if (o1[0] == o2[0]) {
@@ -29,13 +31,13 @@ public class Main {
         });
 
         for (int i = 0; i < n; i++) {
-            bw.write(String.valueOf(numbers[i][0]));
+            bw.write(String.valueOf(arr[i][0]));
             bw.write(" ");
-            bw.write(String.valueOf(numbers[i][1]));
+            bw.write(String.valueOf(arr[i][1]));
             bw.newLine();
         }
 
+        bw.flush();
         bw.close();
-
     }
 }
