@@ -3,7 +3,7 @@
 import os
 from urllib import parse
 
-HEADER="""# 
+HEADER=""
 # 문제 풀이 목록
 
 def main():
