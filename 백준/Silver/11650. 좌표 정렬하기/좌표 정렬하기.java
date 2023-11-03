@@ -17,11 +17,15 @@ public class Main {
 
         br.close();
 
-        Arrays.sort(numbers, (a, b) -> {
-            if (a[0] == b[0]) {
-                return Integer.compare(a[1], b[1]);
+        Arrays.sort(numbers, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if (o1[0] == o2[0]) {
+                    return o1[1] - o2[1];
+                } else {
+                    return o1[0] - o2[0];
+                }
             }
-            return Integer.compare(a[0], b[0]);
         });
 
         for (int i = 0; i < n; i++) {
