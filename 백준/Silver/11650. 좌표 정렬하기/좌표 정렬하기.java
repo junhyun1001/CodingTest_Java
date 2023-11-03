@@ -4,6 +4,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
 
@@ -14,6 +15,8 @@ public class Main {
             numbers[i][1] = Integer.parseInt(st.nextToken());
         }
 
+        br.close();
+
         Arrays.sort(numbers, (a, b) -> {
             if (a[0] == b[0]) {
                 return Integer.compare(a[1], b[1]);
@@ -21,15 +24,14 @@ public class Main {
             return Integer.compare(a[0], b[0]);
         });
 
-        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
-                sb.append(numbers[i][0]);
-                sb.append(" ");
-                sb.append(numbers[i][1]);
-                sb.append("\n");
+            bw.write(String.valueOf(numbers[i][0]));
+            bw.write(" ");
+            bw.write(String.valueOf(numbers[i][1]));
+            bw.newLine();
         }
 
-        System.out.println(sb);
+        bw.close();
 
     }
 }
