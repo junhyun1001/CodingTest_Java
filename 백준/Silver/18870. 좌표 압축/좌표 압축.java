@@ -9,7 +9,7 @@ public class Main {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             list.add(Integer.parseInt(st.nextToken()));
         }
@@ -17,7 +17,7 @@ public class Main {
         List<Integer> sortList = new ArrayList<>(list);
         sortList.sort(Comparator.naturalOrder());
 
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>(n);
         int cnt = 0;
         for (int i : sortList) {
             if (!map.containsKey(i)) {
