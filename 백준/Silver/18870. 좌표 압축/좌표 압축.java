@@ -9,25 +9,29 @@ public class Main {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
+        // input arr
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int[] sortArr = arr.clone();
-        Arrays.sort(sortArr);
+        // asc order
+        int[] sortedArr = arr.clone();
+        Arrays.sort(sortedArr);
 
-        Map<Integer, Integer> map = new HashMap<>(n);
+        // put key & value by containsKey(), cnt
+        Map<Integer, Integer> map = new HashMap<>();
         int cnt = 0;
-        for (int i : sortArr) {
+        for (int i : sortedArr) {
             if (!map.containsKey(i)) {
                 map.put(i, cnt++);
             }
         }
 
+        // get value by key(arr)
         StringBuilder sb = new StringBuilder();
         for (int i : arr) {
-            sb.append(map.get(i)).append(' ');
+            sb.append(map.get(i)).append(" ");
         }
 
         System.out.println(sb);
