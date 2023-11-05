@@ -9,24 +9,24 @@ public class Main {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        List<Integer> list = new ArrayList<>(n);
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-            list.add(Integer.parseInt(st.nextToken()));
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        List<Integer> sortList = new ArrayList<>(list);
-        sortList.sort(Comparator.naturalOrder());
+        int[] sortArr = arr.clone();
+        Arrays.sort(sortArr);
 
         Map<Integer, Integer> map = new HashMap<>(n);
         int cnt = 0;
-        for (int i : sortList) {
+        for (int i : sortArr) {
             if (!map.containsKey(i)) {
                 map.put(i, cnt++);
             }
         }
 
         StringBuilder sb = new StringBuilder();
-        for(int i : list) {
+        for (int i : arr) {
             sb.append(map.get(i)).append(' ');
         }
 
