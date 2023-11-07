@@ -9,28 +9,20 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[] swifts = new int[n];
-        int[] sema = new int[n];
+        int swiftsSum = 0;
+        int semaSum = 0;
+        int k = 0;
         StringTokenizer st1 = new StringTokenizer(br.readLine());
         StringTokenizer st2 = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            swifts[i] = Integer.parseInt(st1.nextToken());
-            sema[i] = Integer.parseInt(st2.nextToken());
-        }
-
-        int K = 0;
-        int swiftsSum = 0;
-        int semaSum = 0;
-
-        for (int i = 0; i < n; i++) {
-            swiftsSum += swifts[i];
-            semaSum += sema[i];
-
+            swiftsSum += Integer.parseInt(st1.nextToken());
+            semaSum += Integer.parseInt(st2.nextToken());
             if (swiftsSum == semaSum) {
-                K = i + 1;
+                k = i + 1;
             }
         }
+        
+        System.out.println(k);
 
-        System.out.println(K);
     }
 }
